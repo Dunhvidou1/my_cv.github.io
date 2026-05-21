@@ -87,6 +87,15 @@ a{color:inherit;text-decoration:none;}
 .ref-pos{font-size:11.5px;color:#4f8ef7;margin-bottom:8px;}
 .ref-phone{font-size:12px;color:#9ba3bf;}
 
+.note-card{margin-top:20px;border:1px solid #2a3f6a;border-left:3px solid #4f8ef7;border-radius:10px;padding:20px 22px;background:linear-gradient(135deg,#111827,#141c2e);position:relative;overflow:hidden;}
+.note-card::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(79,142,247,0.07) 0%,transparent 70%);pointer-events:none;}
+.note-card-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.note-card-icon{width:28px;height:28px;background:#1a2a4a;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.note-card-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#4f8ef7;}
+.note-card p{font-size:13px;color:#9ba3bf;line-height:1.85;margin-bottom:10px;}
+.note-card p:last-child{margin-bottom:0;}
+.note-card p strong{color:#c5cae5;font-weight:500;}
+
 @media(max-width:800px){
   .page{grid-template-columns:1fr;}
   .sidebar{position:static;height:auto;}
@@ -164,7 +173,7 @@ a{color:inherit;text-decoration:none;}
   <div class="hero">
     <div class="hero-name">Dunh Vidou</div>
     <div class="hero-role">Senior Mobile Development Officer</div>
-    <p class="hero-summary">Senior Software Development officer with 3 years of experience designing and developing robust Android applications using Kotlin, Java. Proficient in building feature-rich apps with a focus on performance, scalability, and maintainability. Expertise in requirements analysis, development and production support. Certified Mobile Development Professional with extensive knowledge of modern app architectures (MVVM, Clean Architecture) and strong collaborative skills in cross-functional teams.</p>
+    <p class="hero-summary">Senior Software Development officer with 3 years of experience designing and developing robust Android applications using Kotlin, Java, and Android SDK. Proficient in building feature-rich apps with a focus on performance, scalability, and maintainability. Expertise in requirements analysis, development and production support. Certified Mobile Development Professional with extensive knowledge of modern app architectures (MVVM, Clean Architecture) and strong collaborative skills in cross-functional teams.</p>
   </div>
 
   <div class="section">
@@ -249,9 +258,8 @@ a{color:inherit;text-decoration:none;}
     <div class="ref-grid">
       <div class="ref-card"><div class="ref-name">Van Sovai</div><div class="ref-pos">Senior Software Development Officer</div><div class="ref-phone">📞 081 958 627</div></div>
       <div class="ref-card"><div class="ref-name">Loun Nakhon</div><div class="ref-pos">Senior Cyber Security</div><div class="ref-phone">📞 096 996 4095</div></div>
-    </div>
-  </div> -->
-  
+    </div> -->
+
     <div class="note-card">
       <div class="note-card-header">
         <div class="note-card-icon">
@@ -263,7 +271,7 @@ a{color:inherit;text-decoration:none;}
       <p>I may not always express ideas perfectly in interviews, but I enjoy <strong>solving problems, researching solutions,</strong> and turning requirements into working products. Most of my experience comes from <strong>adapting quickly and delivering in fast-moving environments.</strong></p>
       <p>I'm especially interested in joining a team with <strong>strong engineering practices and DevOps workflow</strong> so I can learn, improve, and grow further.</p>
     </div>
-
+  </div>
 </main>
 </div>
 </body>
