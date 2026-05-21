@@ -1,451 +1,218 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<style>
-		@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
-
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			list-style: none;
-			font-family: "Montserrat", sans-serif;
-		}
-
-		body {
-			background: #585c68;
-			font-size: 14px;
-			line-height: 22px;
-			color: #555555;
-		}
-
-		.bold {
-			font-weight: 700;
-			font-size: 20px;
-			text-transform: uppercase;
-		}
-
-		.semi-bold {
-			font-weight: 500;
-			font-size: 16px;
-		}
-
-		.resume {
-			width: 800px;
-			height: auto;
-			display: flex;
-			margin: auto;
-		}
-
-		.resume .resume_left {
-			width: 280px;
-			background: #0bb5f4;
-		}
-
-		.resume .resume_left .resume_profile {
-			width: 100%;
-			height: 280px;
-		}
-
-		.resume .resume_left .resume_profile img {
-			width: 100%;
-			height: 100%;
-		}
-
-		.resume .resume_left .resume_content {
-			padding: 0 25px;
-		}
-
-		.resume .title {
-			margin-bottom: 20px;
-		}
-
-		.resume .resume_left .bold {
-			color: #fff;
-		}
-
-		.resume .resume_left .regular {
-			color: #b1eaff;
-		}
-
-		.resume .resume_item {
-			padding: 25px 0;
-			border-bottom: 2px solid #b1eaff;
-		}
-
-		.resume .resume_left .resume_item:last-child,
-		.resume .resume_right .resume_item:last-child {
-			border-bottom: 0px;
-		}
-
-		.resume .resume_left ul li {
-			display: flex;
-			margin-bottom: 10px;
-			align-items: center;
-		}
-
-		.resume .resume_left ul li:last-child {
-			margin-bottom: 0;
-		}
-
-		.resume .resume_left ul li .icon {
-			width: 35px;
-			height: 35px;
-			background: #fff;
-			color: #0bb5f4;
-			border-radius: 50%;
-			margin-right: 15px;
-			font-size: 16px;
-			position: relative;
-		}
-
-		.resume .icon i,
-		.resume .resume_right .resume_hobby ul li i {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		.resume .resume_left ul li .data {
-			color: #b1eaff;
-		}
-
-		.resume .resume_left .resume_skills ul li {
-			display: flex;
-			margin-bottom: 10px;
-			color: #b1eaff;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.resume .resume_left .resume_skills ul li .skill_name {
-			width: 25%;
-		}
-
-		.resume .resume_left .resume_skills ul li .skill_progress {
-			width: 60%;
-			margin: 0 5px;
-			height: 5px;
-			background: #009fd9;
-			position: relative;
-		}
-
-		.resume .resume_left .resume_skills ul li .skill_per {
-			width: 15%;
-		}
-
-		.resume .resume_left .resume_skills ul li .skill_progress span {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			background: #fff;
-		}
-
-		.resume .resume_left .resume_social .semi-bold {
-			color: #fff;
-			margin-bottom: 3px;
-		}
-
-		.resume .resume_right {
-			width: 520px;
-			background: #fff;
-			padding: 25px;
-		}
-
-		.resume .resume_right .bold {
-			color: #0bb5f4;
-		}
-
-		.resume .resume_right .resume_work ul,
-		.resume .resume_right .resume_education ul {
-			padding-left: 40px;
-			overflow: hidden;
-		}
-
-		.resume .resume_right ul li {
-			position: relative;
-		}
-
-		.resume .resume_right ul li .date {
-			font-size: 16px;
-			font-weight: 500;
-			margin-bottom: 15px;
-		}
-
-		.resume .resume_right ul li .info {
-			margin-bottom: 20px;
-		}
-
-		.resume .resume_right ul li:last-child .info {
-			margin-bottom: 0;
-		}
-
-		.resume .resume_right .resume_work ul li:before,
-		.resume .resume_right .resume_education ul li:before {
-			content: "";
-			position: absolute;
-			top: 5px;
-			left: -25px;
-			width: 6px;
-			height: 6px;
-			border-radius: 50%;
-			border: 2px solid #0bb5f4;
-		}
-
-		.resume .resume_right .resume_work ul li:after,
-		.resume .resume_right .resume_education ul li:after {
-			content: "";
-			position: absolute;
-			top: 14px;
-			left: -21px;
-			width: 2px;
-			height: 115px;
-			background: #0bb5f4;
-		}
-
-		.resume .resume_right .resume_hobby ul {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.resume .resume_right .resume_hobby ul li {
-			width: 80px;
-			height: 80px;
-			border: 2px solid #0bb5f4;
-			border-radius: 50%;
-			position: relative;
-			color: #0bb5f4;
-		}
-
-		.resume .resume_right .resume_hobby ul li i {
-			font-size: 30px;
-		}
-
-		.resume .resume_right .resume_hobby ul li:before {
-			content: "";
-			position: absolute;
-			top: 40px;
-			right: -52px;
-			width: 50px;
-			height: 2px;
-			background: #0bb5f4;
-		}
-
-		.resume .resume_right .resume_hobby ul li:last-child:before {
-			display: none;
-		}
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dunh Vidou — Senior Mobile Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#0f1117;color:#e8eaf0;font-size:14px;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.page{display:grid;grid-template-columns:300px 1fr;min-height:100vh;}
+.sidebar{background:#161b27;padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid #1e2436;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:#2a3147;}
+.profile-block{padding:36px 28px 28px;border-bottom:1px solid #1e2436;}
+.avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#1a6cf0,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:#fff;margin-bottom:18px;letter-spacing:1px;}
+.name{font-size:20px;font-weight:600;color:#fff;margin-bottom:4px;}
+.role{font-size:12px;color:#4f8ef7;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;}
+.sb-section{padding:24px 28px;border-bottom:1px solid #1e2436;}
+.sb-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#4a5478;margin-bottom:16px;}
+.contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13px;color:#9ba3bf;}
+.contact-item svg{flex-shrink:0;margin-top:1px;opacity:.7;}
+.contact-item span{color:#c5cae5;}
+.skill-row{margin-bottom:10px;}
+.skill-header{display:flex;justify-content:space-between;font-size:12px;color:#9ba3bf;margin-bottom:5px;}
+.skill-header span:last-child{color:#4f8ef7;}
+.bar{height:3px;background:#1e2436;border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1a6cf0,#0ea5e9);}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{background:#1e2436;border:1px solid #252d45;color:#9ba3bf;font-size:11px;padding:4px 10px;border-radius:20px;}
+.lang-item{display:flex;align-items:center;gap:10px;font-size:13px;color:#c5cae5;margin-bottom:8px;}
+.lang-dots{display:flex;gap:4px;}
+.dot{width:8px;height:8px;border-radius:50%;background:#1e2436;}
+.dot.on{background:#4f8ef7;}
+.main{padding:48px 52px;}
+.section{margin-bottom:48px;}
+.section-title{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#4f8ef7;margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid #1e2436;}
+.hero{margin-bottom:48px;}
+.hero-name{font-size:36px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:4px;}
+.hero-role{font-size:16px;color:#4f8ef7;margin-bottom:20px;font-weight:400;}
+.hero-summary{font-size:14px;color:#9ba3bf;line-height:1.8;max-width:620px;}
+.exp-item{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid #1e2436;}
+.exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.exp-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:3px;}
+.exp-company{font-size:13px;color:#4f8ef7;margin-bottom:14px;}
+.exp-date{font-size:12px;color:#4a5478;white-space:nowrap;font-weight:500;padding-top:4px;}
+.exp-location{font-size:12px;color:#4a5478;text-align:right;margin-top:3px;}
+.exp-desc{font-size:13px;color:#9ba3bf;margin-bottom:10px;}
+.exp-bullets{list-style:none;padding:0;}
+.exp-bullets li{font-size:13px;color:#9ba3bf;padding:4px 0 4px 16px;position:relative;}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;background:#4f8ef7;border-radius:50%;}
+.edu-item{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:20px;}
+.edu-title{font-size:15px;font-weight:500;color:#fff;margin-bottom:3px;}
+.edu-school{font-size:13px;color:#4f8ef7;}
+.edu-date{font-size:12px;color:#4a5478;white-space:nowrap;padding-top:4px;}
+.edu-location{font-size:12px;color:#4a5478;text-align:right;margin-top:3px;}
+.strength-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.strength-card{background:#161b27;border:1px solid #1e2436;border-radius:10px;padding:18px;}
+.strength-icon{width:32px;height:32px;border-radius:8px;background:#1a2a4a;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.strength-title{font-size:13px;font-weight:500;color:#c5cae5;margin-bottom:6px;}
+.strength-text{font-size:12px;color:#6b748f;line-height:1.7;}
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ref-card{background:#161b27;border:1px solid #1e2436;border-radius:10px;padding:18px;}
+.ref-name{font-size:14px;font-weight:500;color:#fff;margin-bottom:4px;}
+.ref-pos{font-size:12px;color:#4f8ef7;margin-bottom:10px;}
+.ref-phone{font-size:12px;color:#9ba3bf;}
+@media(max-width:800px){
+  .page{grid-template-columns:1fr;}
+  .sidebar{position:static;height:auto;}
+  .main{padding:32px 24px;}
+  .strength-grid,.ref-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
-
 <body>
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<div class="page">
+<aside class="sidebar">
+  <div class="profile-block">
+    <div class="avatar">DV</div>
+    <div class="name">Dunh Vidou</div>
+    <div class="role">Senior Mobile Developer</div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label">Contact</div>
+    <div class="contact-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <span>Khan Dangkor, Phnom Penh</span>
+    </div>
+    <div class="contact-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>+(885) 96 264 1104</span>
+    </div>
+    <div class="contact-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>dunh.vidou1@gmail.com</span>
+    </div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label">Technical Skills</div>
+    <div class="skill-row"><div class="skill-header"><span>Android (Kotlin/Java)</span><span>95%</span></div><div class="bar"><div class="bar-fill" style="width:95%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>MVVM / Clean Arch</span><span>90%</span></div><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>Firebase / Crashlytics</span><span>88%</span></div><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>REST / Retrofit</span><span>88%</span></div><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>SQL / Oracle</span><span>80%</span></div><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>Flutter / React Native</span><span>70%</span></div><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>HTML / CSS / JS</span><span>75%</span></div><div class="bar"><div class="bar-fill" style="width:75%"></div></div></div>
+    <div class="skill-row"><div class="skill-header"><span>ASP .NET / C#</span><span>72%</span></div><div class="bar"><div class="bar-fill" style="width:72%"></div></div></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label">Languages</div>
+    <div class="lang-item"><span>Khmer</span><div class="lang-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="lang-item"><span>English</span><div class="lang-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-label">Other Tech</div>
+    <div class="tag-cloud">
+      <span class="tag">SSL Pinning</span><span class="tag">Biometrics</span><span class="tag">LiveData</span><span class="tag">Google Maps SDK</span><span class="tag">FCM / Push</span><span class="tag">Encryption</span><span class="tag">Git</span><span class="tag">SQL Server</span>
+    </div>
+  </div>
+</aside>
 
-	<div class="resume">
-			<div class="resume_profile">
-				<img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
-			</div>
-			<div class="resume_content">
-				<div class="resume_item resume_info">
-					<div class="title">
-						<p class="bold">Dunh Vidou</p>
-						<p class="regular">Designer</p>
-					</div>
-					<ul>
-						<li>
-							<div class="icon">
-								<i class="fas fa-map-signs"></i>
-							</div>
-							<div class="data">
-								21 Street, Texas <br /> USA
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fas fa-mobile-alt"></i>
-							</div>
-							<div class="data">
-								+855 962641104
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fas fa-envelope"></i>
-							</div>
-							<div class="data">
-								dunh.vidouddasfsgdghjkhljk;l1@gmail.com
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fab fa-weebly"></i>
-							</div>
-							<div class="data">
-								www.stesadsfdhjkjlk;';
-								';liurtrewqphen.com
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="resume_item resume_skills">
-					<div class="title">
-						<p class="bold">skill's</p>
-					</div>
-					<ul>
-						<li>
-							<div class="skill_name">
-								HTML
-							</div>
-							<div class="skill_progress">
-								<span style="width: 80%;"></span>
-							</div>
-							<div class="skill_per">823435667890-98760%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								CSS
-							</div>
-							<div class="skill_progress">
-								<span style="width: 70%;"></span>
-							</div>
-							<div class="skill_per">70%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								SASS
-							</div>
-							<div class="skill_progress">
-								<span style="width: 90%;"></span>
-							</div>
-							<div class="skill_per">90%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								JS
-							</div>
-							<div class="skill_progress">
-								<span style="width: 60%;"></span>
-							</div>
-							<div class="skill_per">60%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								JQUERY
-							</div>
-							<div class="skill_progress">
-								<span style="width: 88%;"></span>
-							</div>
-							<div class="skill_per">88%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								Asp.Net
-							</div>
-							<div class="skill_progress">
-								<span style="width: 88%;"></span>
-							</div>
-							<div class="skill_per">88%</div>
-						</li>
-						<li>
-							<div class="skill_name">
-								PHP
-							</div>
-							<div class="skill_progress">
-								<span style="width: 88%;"></span>
-							</div>
-							<div class="skill_per">88%</div>
-						</li>
-					</ul>
-				</div>
-				<div class="resume_item resume_social">
-					<div class="title">
-						<p class="bold">Social</p>
-					</div>
-					<ul>
-						<li>
-							<div class="icon">
-								<i class="fab fa-facebook-square"></i>
-							</div>
-							<div class="data">
-								<p class="semi-bold">Facebook</p>
-								<p>Stephen@facebook</p>
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fab fa-twitter-square"></i>
-							</div>
-							<div class="data">
-								<p class="semi-bold">Twitter</p>
-								<p>Stephen@twitter</p>
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fab fa-youtube"></i>
-							</div>
-							<div class="data">
-								<p class="semi-bold">Youtube</p>
-								<p>Stephen@youtube</p>
-							</div>
-						</li>
-						<li>
-							<div class="icon">
-								<i class="fab fa-linkedin"></i>
-							</div>
-							<div class="data">
-								<p class="semi-bold">Linkedin</p>
-								<p>Stephen@linkedin</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="resume_right">
-			<div class="resume_item resume_about">
-				<div class="title">
-					<p class="bold">About us</p>
-				</div>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio
-					culpa officia totam atque exercitationem inventore repudiandae?</p>
-			</div>
-			<div class="resume_item resume_work">
-				<div class="title">
-					<p class="bold">Work Experience</p>
-				</div>
-				<ul>
-					<li>
-						<div class="date">2013 - 2015</div>
-						<div class="info">
-							<p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-						</div>
-					</li>
-					<li>
-						<div class="date">2015 - 2017</div>
-						<div class="info">
-							<p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-						</div>
-					</li>
-					<li>
-						<div class="date">2017 - Present</div>
-						<div class="info">
-							<p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-			
-		</div>
-	</div>
+<main class="main">
+  <div class="hero">
+    <div class="hero-name">Dunh Vidou</div>
+    <div class="hero-role">Senior Mobile Development Officer</div>
+    <p class="hero-summary">Senior Software Development officer with 3 years of experience designing and developing robust Android applications using Kotlin, Java, and Android SDK. Proficient in building feature-rich apps with a focus on performance, scalability, and maintainability. Expertise in requirements analysis, development and production support. Certified Mobile Development Professional with extensive knowledge of modern app architectures (MVVM, Clean Architecture) and strong collaborative skills in cross-functional teams.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Experience</div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-title">Senior Mobile Development Officer</div>
+        <div class="exp-company">MOHANOKOR MFI</div>
+        <div class="exp-desc">Developed and enhanced mobile applications, including greenfield projects and maintenance of existing code.</div>
+        <ul class="exp-bullets">
+          <li>Integrated Firebase Crashlytics and custom monitoring for real-time issue tracking and quick resolution</li>
+          <li>Developed a secure mobile app handling transactions, account management, and bill payments</li>
+          <li>Built biometric authentication (fingerprint and facial recognition) for secure access</li>
+          <li>Implemented SSL Pinning to prevent man-in-the-middle (MITM) attacks</li>
+          <li>Designed encrypted SharedPreferences using Asymmetric Encryption for storing sensitive data</li>
+          <li>Built secure API integration using Retrofit with encrypted data transmission</li>
+          <li>Worked with QA for end-to-end testing and certification of product delivery</li>
+        </ul>
+      </div>
+      <div><div class="exp-date">2023 — Present</div><div class="exp-location">Phnom Penh</div></div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-title">Software Developer</div>
+        <div class="exp-company">MOHANOKOR MFI</div>
+        <div class="exp-desc">Worked on a core software application, involving greenfield development and supporting existing code.</div>
+        <ul class="exp-bullets">
+          <li>Implemented MVVM architecture with LiveData for a cleaner and more modular codebase</li>
+          <li>Integrated third-party SDKs like Google Maps for location-based features</li>
+          <li>Configured FirebaseMessagingService to handle incoming push notifications</li>
+          <li>Involved in database design on SQL Server 2014, developing triggers and stored procedures</li>
+        </ul>
+      </div>
+      <div><div class="exp-date">2022 — 2023</div><div class="exp-location">Phnom Penh</div></div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-title">Junior Web Developer</div>
+        <div class="exp-company">KHB Media Solution</div>
+        <div class="exp-desc">Worked on developing a web application for a media solution company.</div>
+        <ul class="exp-bullets">
+          <li>Built a web application from scratch, creating new functionality that increased client satisfaction by 25%</li>
+          <li>Used HTML, CSS, JavaScript, and ASP .NET throughout the project lifecycle</li>
+          <li>Collaborated with the development team using Git for version control</li>
+          <li>Assisted in creating login systems for secure access</li>
+        </ul>
+      </div>
+      <div><div class="exp-date">2021 — 2022</div><div class="exp-location">Phnom Penh</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div><div class="edu-title">Bachelor of Science in Information Technology</div><div class="edu-school">Royal University of Phnom Penh</div></div>
+      <div><div class="edu-date">2019 — 2023</div><div class="edu-location">Phnom Penh</div></div>
+    </div>
+    <div class="edu-item">
+      <div><div class="edu-title">High School</div><div class="edu-school">Hun Sen Por Ampil High School</div></div>
+      <div><div class="edu-date">2013 — 2018</div><div class="edu-location">Takeo</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Strengths</div>
+    <div class="strength-grid">
+      <div class="strength-card">
+        <div class="strength-icon"><svg width="16" height="16" fill="none" stroke="#4f8ef7" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="strength-title">Problem Solving</div>
+        <div class="strength-text">Successfully identified and resolved complex issues when working on legacy software, resulting in significant improvements to performance and usability.</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon"><svg width="16" height="16" fill="none" stroke="#4f8ef7" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="strength-title">Communication</div>
+        <div class="strength-text">Excellent communication skills demonstrated through successful collaboration with cross-functional teams including developers, project managers, and QA specialists.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">References</div>
+    <div class="ref-grid">
+      <div class="ref-card"><div class="ref-name">Van Sovai</div><div class="ref-pos">Senior Software Development Officer</div><div class="ref-phone">📞 081 958 627</div></div>
+      <div class="ref-card"><div class="ref-name">Loun Nakhon</div><div class="ref-pos">Senior Cyber Security</div><div class="ref-phone">📞 096 996 4095</div></div>
+    </div>
+  </div>
+</main>
+</div>
 </body>
-
 </html>
